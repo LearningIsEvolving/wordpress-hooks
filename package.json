@@ -6,12 +6,12 @@
   "author": "Dan Burzo <danburzo@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "ejs": "^2.5.7",
-    "klaw": "^2.1.0",
-    "php-parser": "^2.0.6",
-    "through2": "^2.0.3"
+    "x-ray": "^2.3.2"
   },
   "scripts": {
-    "generate": "node src/index.js"
+    "scrape": "node src/scrape.js",
+    "generate": "node src/generate.js"
   }
 }

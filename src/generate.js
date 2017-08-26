@@ -1,0 +1,44 @@
+var fs = require('fs');
+var ejs = require('ejs');
+
+const hooks = JSON.parse(fs.readFileSync('hooks.json', 'utf8'));
+const template = ejs.compile(fs.readFileSync('./src/template.ejs', 'utf8'));
+
+const group_by = function(arr, prop) {
+	var ret = {};
+	arr.forEach(item => {
+		if (!ret[item[prop]]) {
+			ret[item[prop]]= [];
+		}
+		ret[item[prop]].push(item);
+	});
+	return Object.keys(ret).map(key => {
+		return {
+			source: key,
+			hooks: ret[key]
+		};
+	}).sort((a, b) => {
+		if (a.source > b.source) {
+			return 1;
+		}
+		else if (a.source < b.source) {
+			return -1;
+		}
+		return 0;
+	});
+}
+
+const items = group_by(
+	hooks.map(hook => {
+		return {
+			name: hook.name,
+			source: hook.source.split(':')[1].trim(),
+			description: hook.description.replace(/(Filter|Action) Hook\: /, '').trim(),
+			type: hook.description.match(/Filter Hook\:/) ? 'filter' : 'action',
+			link: hook.link
+		}
+	}),
+	'source'
+)
+
+fs.writeFileSync('HOOKS.md', template({ items: items }));
