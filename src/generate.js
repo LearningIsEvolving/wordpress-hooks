@@ -45,4 +45,10 @@ const items = group_by(
 	'source'
 )
 
-fs.writeFileSync('README.md', template({ items: items }));
+fs.writeFileSync(
+	'README.md', 
+	template({ 
+		items: items,
+		trunk_url: 'https://core.trac.wordpress.org/browser/trunk/src/'
+	})
+);
