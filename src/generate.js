@@ -1,7 +1,8 @@
 var fs = require('fs');
 var ejs = require('ejs');
 
-const hooks = JSON.parse(fs.readFileSync('hooks.json', 'utf8'));
+const hooks = JSON.parse(fs.readFileSync('./data/hooks.json', 'utf8'));
+const docs = JSON.parse(fs.readFileSync('./data/docs.json', 'utf8'));
 const template = ejs.compile(fs.readFileSync('./src/template.ejs', 'utf8'));
 
 const group_by = function(arr, prop) {
@@ -15,6 +16,7 @@ const group_by = function(arr, prop) {
 	return Object.keys(ret).map(key => {
 		return {
 			source: key,
+			description: docs[key] || [],
 			hooks: ret[key]
 		};
 	}).sort((a, b) => {
@@ -34,11 +36,11 @@ const items = group_by(
 			name: hook.name,
 			source: hook.source.split(':')[1].trim(),
 			description: hook.description.replace(/(Filter|Action) Hook\: /, '').trim(),
-			type: hook.description.match(/Filter Hook\:/) ? 'filter' : 'action',
+			type: hook.description.match(/Filter Hook\:/) ? 'Filter' : 'Action',
 			link: hook.link
 		}
 	}),
 	'source'
 )
 
-fs.writeFileSync('HOOKS.md', template({ items: items }));
+fs.writeFileSync('README.md', template({ items: items }));

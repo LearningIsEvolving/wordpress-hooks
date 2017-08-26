@@ -6,5 +6,5 @@ x('https://developer.wordpress.org/reference/hooks/', '.wp-parser-hook', [
 		source: '.sourcefile p',
 		description: '.description'
 	}
-]).paginate('.pagination .next@href').write('hooks.json');
+]).paginate('.pagination .next@href').write('data/hooks.json');
 
