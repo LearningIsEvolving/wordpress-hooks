@@ -11,12 +11,14 @@ const group_by = function(arr, prop) {
 		if (!ret[item[prop]]) {
 			ret[item[prop]]= [];
 		}
-		ret[item[prop]].push(item);
+		if (!ret[item[prop]].find(i => i.name === item.name)) {
+			ret[item[prop]].push(item);
+		}
 	});
 	return Object.keys(ret).map(key => {
 		return {
 			source: key,
-			description: docs[key] || [],
+			description: (docs[key] || []).filter(line => line && line.indexOf("@") !== 0),
 			hooks: ret[key]
 		};
 	}).sort((a, b) => {
