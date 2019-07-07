@@ -2,8 +2,9 @@ var fs = require('fs');
 var phpParser = require('php-parser');
 var klaw = require('klaw');
 var through2 = require('through2');
+let { resolve } = require('path');
 
-var BASE_PATH = '/Users/danburzo/Downloads/wordpress/';
+var BASE_PATH = resolve('../wordpress/');
 
 var parser = new phpParser({
 	parser: {
@@ -33,7 +34,7 @@ const extractDoc = through2.obj(
 		let doc = ast.children.find(child => child.isDoc);
 		if (doc) {
 			this.push({
-				path: item.path.replace(BASE_PATH, ''),
+				path: item.path.replace(BASE_PATH + '/', ''),
 				doc: doc.lines
 			});
 		}

@@ -49,6 +49,6 @@ fs.writeFileSync(
 	'README.md', 
 	template({ 
 		items: items,
-		trunk_url: 'https://core.trac.wordpress.org/browser/trunk/src/'
+		trunk_url: 'https://github.com/WordPress/WordPress/tree/master/'
 	})
 );

@@ -52,8 +52,15 @@
   ],
   "wp-cron.php": [
     "",
-    "WordPress Cron Implementation for hosts, which do not offer CRON or for which",
-    "the user has not set up a CRON job pointing to this file.",
+    "A pseudo-CRON daemon for scheduling WordPress tasks",
+    "",
+    "WP Cron is triggered when the site receives a visit. In the scenario",
+    "where a site may not receive enough visits to execute scheduled tasks",
+    "in a timely manner, this file can be called directly or via a server",
+    "CRON daemon for X number of times.",
+    "",
+    "Defining DISABLE_WP_CRON as true and calling this file directly are",
+    "mutually exclusive and the latter does not rely on the former to work.",
     "",
     "The HTTP request to this file will not slow down the visitor who happens to",
     "visit when the cron job is needed to run.",
@@ -207,7 +214,7 @@
   ],
   "wp-admin/async-upload.php": [
     "",
-    "Server-side file upload handler from wp-plupload, swfupload or other asynchronous upload methods.",
+    "Server-side file upload handler from wp-plupload or other asynchronous upload methods.",
     "",
     "@package WordPress",
     "@subpackage Administration",
@@ -270,6 +277,16 @@
     "@subpackage Administration",
     ""
   ],
+  "wp-admin/edit-form-blocks.php": [
+    "",
+    "The Block Editor page.",
+    "",
+    "@since 5.0.0",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
   "wp-admin/edit-form-comment.php": [
     "",
     "Edit comment form for inclusion in another file.",
@@ -305,6 +322,22 @@
   "wp-admin/edit.php": [
     "",
     "Edit Posts Administration Screen.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
+  "wp-admin/erase-personal-data.php": [
+    "",
+    "Privacy tools, Erase Personal Data screen.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
+  "wp-admin/export-personal-data.php": [
+    "",
+    "Privacy tools, Export Personal Data screen.",
     "",
     "@package WordPress",
     "@subpackage Administration",
@@ -637,6 +670,14 @@
     "@subpackage Administration",
     ""
   ],
+  "wp-admin/options-privacy.php": [
+    "",
+    "Privacy Settings Screen.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
   "wp-admin/options-reading.php": [
     "",
     "Reading settings administration panel.",
@@ -720,6 +761,22 @@
     "@subpackage Press_This",
     ""
   ],
+  "wp-admin/privacy-policy-guide.php": [
+    "",
+    "Privacy Policy Guide Screen.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
+  "wp-admin/privacy.php": [
+    "",
+    "Privacy administration panel.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
   "wp-admin/profile.php": [
     "",
     "User Profile Administration Screen.",
@@ -737,12 +794,6 @@
     "@package WordPress",
     "@subpackage Administration",
     "@since 2.6.0",
-    "",
-    "@param int    revision Optional. The revision ID.",
-    "@param string action   The action to take.",
-    "Accepts 'restore', 'view' or 'edit'.",
-    "@param int    from     The revision to compare from.",
-    "@param int    to       Optional, required if revision missing. The revision to compare to.",
     ""
   ],
   "wp-admin/setup-config.php": [
@@ -751,6 +802,22 @@
     "",
     "The permissions for the base directory must allow for writing files in order",
     "for the wp-config.php to be created using this page.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
+  "wp-admin/site-health-info.php": [
+    "",
+    "Tools Administration Screen.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
+  "wp-admin/site-health.php": [
+    "",
+    "Tools Administration Screen.",
     "",
     "@package WordPress",
     "@subpackage Administration",
@@ -903,6 +970,15 @@
     "",
     "@package WordPress",
     "@subpackage Template",
+    ""
+  ],
+  "wp-includes/blocks.php": [
+    "",
+    "Functions related to registering and parsing blocks.",
+    "",
+    "@package WordPress",
+    "@subpackage Blocks",
+    "@since 5.0.0",
     ""
   ],
   "wp-includes/bookmark-template.php": [
@@ -1190,6 +1266,31 @@
     "@since 2.1.0",
     ""
   ],
+  "wp-includes/class-wp-block-parser.php": [
+    "",
+    "Block Serialization Parser",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/class-wp-block-type-registry.php": [
+    "",
+    "Blocks API: WP_Block_Type_Registry class",
+    "",
+    "@package WordPress",
+    "@subpackage Blocks",
+    "@since 5.0.0",
+    ""
+  ],
+  "wp-includes/class-wp-block-type.php": [
+    "",
+    "Blocks API: WP_Block_Type class",
+    "",
+    "@package WordPress",
+    "@subpackage Blocks",
+    "@since 5.0.0",
+    ""
+  ],
   "wp-includes/class-wp-comment-query.php": [
     "",
     "Comment API: WP_Comment_Query class",
@@ -1309,6 +1410,14 @@
     "@package WordPress",
     ""
   ],
+  "wp-includes/class-wp-fatal-error-handler.php": [
+    "",
+    "Error Protection API: WP_Fatal_Error_Handler class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
   "wp-includes/class-wp-feed-cache-transient.php": [
     "",
     "Feed API: WP_Feed_Cache_Transient class",
@@ -1369,7 +1478,6 @@
     "",
     "@package WordPress",
     "@since 3.1.0",
-    "",
     ""
   ],
   "wp-includes/class-wp-http-proxy.php": [
@@ -1520,6 +1628,14 @@
     "@since 4.4.0",
     ""
   ],
+  "wp-includes/class-wp-paused-extensions-storage.php": [
+    "",
+    "Error Protection API: WP_Paused_Extensions_Storage class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
   "wp-includes/class-wp-post-type.php": [
     "",
     "Post API: WP_Post_Type class",
@@ -1545,6 +1661,46 @@
     "@package WordPress",
     "@subpackage Query",
     "@since 4.7.0",
+    ""
+  ],
+  "wp-includes/class-wp-recovery-mode-cookie-service.php": [
+    "",
+    "Error Protection API: WP_Recovery_Mode_Cookie_Service class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
+  "wp-includes/class-wp-recovery-mode-email-service.php": [
+    "",
+    "Error Protection API: WP_Recovery_Mode_Email_Link class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
+  "wp-includes/class-wp-recovery-mode-key-service.php": [
+    "",
+    "Error Protection API: WP_Recovery_Mode_Key_Service class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
+  "wp-includes/class-wp-recovery-mode-link-service.php": [
+    "",
+    "Error Protection API: WP_Recovery_Mode_Link_Handler class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
+  "wp-includes/class-wp-recovery-mode.php": [
+    "",
+    "Error Protection API: WP_Recovery_Mode class",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
     ""
   ],
   "wp-includes/class-wp-rewrite.php": [
@@ -1698,6 +1854,15 @@
     "@package WordPress",
     "@subpackage Users",
     "@since 4.4.0",
+    ""
+  ],
+  "wp-includes/class-wp-user-request.php": [
+    "",
+    "WP_User_Request class.",
+    "",
+    "Represents user request data loaded from a WP_Post object.",
+    "",
+    "@since 4.9.6",
     ""
   ],
   "wp-includes/class-wp-user.php": [
@@ -1896,6 +2061,14 @@
     "@since 4.4.0",
     ""
   ],
+  "wp-includes/error-protection.php": [
+    "",
+    "Error Protection API: Functions",
+    "",
+    "@package WordPress",
+    "@since   5.2.0",
+    ""
+  ],
   "wp-includes/feed-atom-comments.php": [
     "",
     "Atom Feed Template for displaying Atom Comments feed.",
@@ -2035,7 +2208,6 @@
     "",
     "@package External",
     "@subpackage KSES",
-    "",
     ""
   ],
   "wp-includes/l10n.php": [
@@ -2106,7 +2278,7 @@
     "",
     "@package WordPress",
     "@subpackage Multisite",
-    "@since MU",
+    "@since MU (3.0.0)",
     ""
   ],
   "wp-includes/ms-default-constants.php": [
@@ -2173,6 +2345,15 @@
     "@subpackage Multisite",
     ""
   ],
+  "wp-includes/ms-network.php": [
+    "",
+    "Network API",
+    "",
+    "@package WordPress",
+    "@subpackage Multisite",
+    "@since 5.1.0",
+    ""
+  ],
   "wp-includes/ms-settings.php": [
     "",
     "Used to set up and fix common variables and include",
@@ -2183,6 +2364,15 @@
     "@package WordPress",
     "@subpackage Multisite",
     "@since 3.0.0",
+    ""
+  ],
+  "wp-includes/ms-site.php": [
+    "",
+    "Site API",
+    "",
+    "@package WordPress",
+    "@subpackage Multisite",
+    "@since 5.1.0",
     ""
   ],
   "wp-includes/nav-menu-template.php": [
@@ -2423,6 +2613,17 @@
     "@since 2.5.0",
     ""
   ],
+  "wp-includes/spl-autoload-compat.php": [
+    "",
+    "Polyfill for SPL autoload feature. This file is separate to prevent compiler notices",
+    "on the deprecated __autoload() function.",
+    "",
+    "See https://core.trac.wordpress.org/ticket/41134",
+    "",
+    "@package PHP",
+    "@access private",
+    ""
+  ],
   "wp-includes/taxonomy.php": [
     "",
     "Core Taxonomy API",
@@ -2434,6 +2635,7 @@
   "wp-includes/template-loader.php": [
     "",
     "Loads the correct template based on the visitor's url",
+    "",
     "@package WordPress",
     ""
   ],
@@ -2488,9 +2690,12 @@
   ],
   "wp-includes/version.php": [
     "",
-    "The WordPress version string",
+    "WordPress Version",
     "",
-    "@global string $wp_version",
+    "Contains version information for the current WordPress release.",
+    "",
+    "@package WordPress",
+    "@since 1.1.0",
     ""
   ],
   "wp-includes/widgets.php": [
@@ -2625,7 +2830,7 @@
   ],
   "wp-admin/includes/class-ftp-pure.php": [
     "",
-    "PemFTP - A Ftp implementation in pure PHP",
+    "PemFTP - An Ftp implementation in pure PHP",
     "",
     "@package PemFTP",
     "@since 2.5.0",
@@ -2639,7 +2844,7 @@
   ],
   "wp-admin/includes/class-ftp-sockets.php": [
     "",
-    "PemFTP - A Ftp implementation in pure PHP",
+    "PemFTP - An Ftp implementation in pure PHP",
     "",
     "@package PemFTP",
     "@since 2.5.0",
@@ -2653,10 +2858,10 @@
   ],
   "wp-admin/includes/class-ftp.php": [
     "",
-    "PemFTP - A Ftp implementation in pure PHP",
+    "PemFTP - An Ftp implementation in pure PHP",
     "",
     "@package PemFTP",
-    "@since 2.5",
+    "@since 2.5.0",
     "",
     "@version 1.0",
     "@copyright Alexey Dotsenko",
@@ -2798,6 +3003,15 @@
     "@package WordPress",
     "@subpackage Administration",
     "@since 4.8.0",
+    ""
+  ],
+  "wp-admin/includes/class-wp-debug-data.php": [
+    "",
+    "Class for providing debug data based on a users WordPress environment.",
+    "",
+    "@package WordPress",
+    "@subpackage Site_Health",
+    "@since 5.2.0",
     ""
   ],
   "wp-admin/includes/class-wp-filesystem-base.php": [
@@ -2981,13 +3195,40 @@
     "@since 3.1.0",
     ""
   ],
-  "wp-admin/includes/class-wp-press-this.php": [
+  "wp-admin/includes/class-wp-privacy-data-export-requests-list-table.php": [
     "",
-    "Press This class and display functionality",
+    "List Table API: WP_Privacy_Data_Export_Requests_List_Table class",
     "",
     "@package WordPress",
-    "@subpackage Press_This",
-    "@since 4.2.0",
+    "@subpackage Administration",
+    "@since 4.9.6",
+    ""
+  ],
+  "wp-admin/includes/class-wp-privacy-data-removal-requests-list-table.php": [
+    "",
+    "List Table API: WP_Privacy_Data_Removal_Requests_List_Table class",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    "@since 4.9.6",
+    ""
+  ],
+  "wp-admin/includes/class-wp-privacy-policy-content.php": [
+    "",
+    "WP_Privacy_Policy_Content class.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    "@since 4.9.6",
+    ""
+  ],
+  "wp-admin/includes/class-wp-privacy-requests-table.php": [
+    "",
+    "List Table API: WP_Privacy_Requests_Table class",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    "@since 4.9.6",
     ""
   ],
   "wp-admin/includes/class-wp-screen.php": [
@@ -2997,6 +3238,24 @@
     "@package WordPress",
     "@subpackage Administration",
     "@since 4.4.0",
+    ""
+  ],
+  "wp-admin/includes/class-wp-site-health-auto-updates.php": [
+    "",
+    "Class for testing automatic updates in the WordPress code.",
+    "",
+    "@package WordPress",
+    "@subpackage Site_Health",
+    "@since 5.2.0",
+    ""
+  ],
+  "wp-admin/includes/class-wp-site-health.php": [
+    "",
+    "Class for looking up a site's health based on a user's WordPress environment.",
+    "",
+    "@package WordPress",
+    "@subpackage Site_Health",
+    "@since 5.2.0",
     ""
   ],
   "wp-admin/includes/class-wp-site-icon.php": [
@@ -3316,6 +3575,14 @@
     "@subpackage Administration",
     ""
   ],
+  "wp-admin/includes/privacy-tools.php": [
+    "",
+    "WordPress Administration Privacy Tools API.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    ""
+  ],
   "wp-admin/includes/revision.php": [
     "",
     "WordPress Administration Revisions API",
@@ -3363,7 +3630,7 @@
   ],
   "wp-admin/includes/theme-install.php": [
     "",
-    "WordPress Theme Install Administration API",
+    "WordPress Theme Installation Administration API",
     "",
     "@package WordPress",
     "@subpackage Administration",
@@ -3379,7 +3646,7 @@
   ],
   "wp-admin/includes/translation-install.php": [
     "",
-    "WordPress Translation Install Administration API",
+    "WordPress Translation Installation Administration API",
     "",
     "@package WordPress",
     "@subpackage Administration",
@@ -3524,6 +3791,15 @@
     "@package WordPress",
     "@subpackage Multisite",
     "@since 3.1.0",
+    ""
+  ],
+  "wp-admin/network/privacy.php": [
+    "",
+    "Network Privacy administration panel.",
+    "",
+    "@package WordPress",
+    "@subpackage Multisite",
+    "@since 4.9.0",
     ""
   ],
   "wp-admin/network/profile.php": [
@@ -3740,6 +4016,15 @@
     "@package WordPress",
     "@subpackage Administration",
     "@since 3.1.0",
+    ""
+  ],
+  "wp-admin/user/privacy.php": [
+    "",
+    "User Dashboard Privacy administration panel.",
+    "",
+    "@package WordPress",
+    "@subpackage Administration",
+    "@since 4.9.0",
     ""
   ],
   "wp-admin/user/profile.php": [
@@ -4912,6 +5197,76 @@
     "@author  Geoffrey T. Dairiki <dairiki@dairiki.org>",
     ""
   ],
+  "wp-includes/blocks/archives.php": [
+    "",
+    "Server-side rendering of the `core/archives` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/block.php": [
+    "",
+    "Server-side rendering of the `core/block` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/calendar.php": [
+    "",
+    "Server-side rendering of the `core/calendar` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/categories.php": [
+    "",
+    "Server-side rendering of the `core/categories` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/latest-comments.php": [
+    "",
+    "Server-side rendering of the `core/latest-comments` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/latest-posts.php": [
+    "",
+    "Server-side rendering of the `core/latest-posts` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/rss.php": [
+    "",
+    "Server-side rendering of the `core/rss` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/search.php": [
+    "",
+    "Server-side rendering of the `core/search` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/shortcode.php": [
+    "",
+    "Server-side rendering of the `core/shortcode` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
+  "wp-includes/blocks/tag-cloud.php": [
+    "",
+    "Server-side rendering of the `core/tag-cloud` block.",
+    "",
+    "@package WordPress",
+    ""
+  ],
   "wp-includes/customize/class-wp-customize-background-image-control.php": [
     "",
     "Customize API: WP_Customize_Background_Image_Control class",
@@ -4937,6 +5292,15 @@
     "@package WordPress",
     "@subpackage Customize",
     "@since 4.7.0",
+    ""
+  ],
+  "wp-includes/customize/class-wp-customize-code-editor-control.php": [
+    "",
+    "Customize API: WP_Customize_Code_Editor_Control class",
+    "",
+    "@package WordPress",
+    "@subpackage Customize",
+    "@since 4.9.0",
     ""
   ],
   "wp-includes/customize/class-wp-customize-color-control.php": [
@@ -4966,6 +5330,15 @@
     "@package WordPress",
     "@subpackage Customize",
     "@since 4.7.0",
+    ""
+  ],
+  "wp-includes/customize/class-wp-customize-date-time-control.php": [
+    "",
+    "Customize API: WP_Customize_Date_Time_Control class",
+    "",
+    "@package WordPress",
+    "@subpackage Customize",
+    "@since 4.9.0",
     ""
   ],
   "wp-includes/customize/class-wp-customize-filter-setting.php": [
@@ -5058,6 +5431,15 @@
     "@since 4.4.0",
     ""
   ],
+  "wp-includes/customize/class-wp-customize-nav-menu-locations-control.php": [
+    "",
+    "Customize API: WP_Customize_Nav_Menu_Locations_Control class",
+    "",
+    "@package WordPress",
+    "@subpackage Customize",
+    "@since 4.9.0",
+    ""
+  ],
   "wp-includes/customize/class-wp-customize-nav-menu-name-control.php": [
     "",
     "Customize API: WP_Customize_Nav_Menu_Name_Control class",
@@ -5101,6 +5483,7 @@
     "@package WordPress",
     "@subpackage Customize",
     "@since 4.4.0",
+    "@deprecated 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.",
     ""
   ],
   "wp-includes/customize/class-wp-customize-new-menu-section.php": [
@@ -5110,6 +5493,7 @@
     "@package WordPress",
     "@subpackage Customize",
     "@since 4.4.0",
+    "@deprecated 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.",
     ""
   ],
   "wp-includes/customize/class-wp-customize-partial.php": [
@@ -5155,6 +5539,15 @@
     "@package WordPress",
     "@subpackage Customize",
     "@since 4.4.0",
+    ""
+  ],
+  "wp-includes/customize/class-wp-customize-themes-panel.php": [
+    "",
+    "Customize API: WP_Customize_Themes_Panel class",
+    "",
+    "@package WordPress",
+    "@subpackage Customize",
+    "@since 4.9.0",
     ""
   ],
   "wp-includes/customize/class-wp-customize-themes-section.php": [
@@ -5211,6 +5604,13 @@
     "@subpackage mo",
     ""
   ],
+  "wp-includes/pomo/plural-forms.php": [
+    "",
+    "A gettext Plural-Forms parser.",
+    "",
+    "@since 4.9.0",
+    ""
+  ],
   "wp-includes/pomo/po.php": [
     "",
     "Class for working with PO files",
@@ -5246,7 +5646,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5274,7 +5674,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5302,7 +5702,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5328,12 +5728,12 @@
     "Random_* Compatibility Library",
     "for using the new PHP 7 random_* API in PHP 5 projects",
     "",
-    "@version 1.2.1",
-    "@released 2016-02-29",
+    "@version 2.0.10",
+    "@released 2017-03-13",
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5361,7 +5761,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5389,7 +5789,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5417,7 +5817,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5445,7 +5845,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5473,63 +5873,7 @@
     "",
     "The MIT License (MIT)",
     "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
-    "",
-    "Permission is hereby granted, free of charge, to any person obtaining a copy",
-    "of this software and associated documentation files (the \"Software\"), to deal",
-    "in the Software without restriction, including without limitation the rights",
-    "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
-    "copies of the Software, and to permit persons to whom the Software is",
-    "furnished to do so, subject to the following conditions:",
-    "",
-    "The above copyright notice and this permission notice shall be included in",
-    "all copies or substantial portions of the Software.",
-    "",
-    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
-    "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
-    "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
-    "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
-    "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
-    "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
-    "SOFTWARE.",
-    ""
-  ],
-  "wp-includes/random_compat/random_bytes_openssl.php": [
-    "",
-    "Random_* Compatibility Library",
-    "for using the new PHP 7 random_* API in PHP 5 projects",
-    "",
-    "The MIT License (MIT)",
-    "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
-    "",
-    "Permission is hereby granted, free of charge, to any person obtaining a copy",
-    "of this software and associated documentation files (the \"Software\"), to deal",
-    "in the Software without restriction, including without limitation the rights",
-    "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
-    "copies of the Software, and to permit persons to whom the Software is",
-    "furnished to do so, subject to the following conditions:",
-    "",
-    "The above copyright notice and this permission notice shall be included in",
-    "all copies or substantial portions of the Software.",
-    "",
-    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
-    "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
-    "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
-    "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
-    "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
-    "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
-    "SOFTWARE.",
-    ""
-  ],
-  "wp-includes/random_compat/random_int.php": [
-    "",
-    "Random_* Compatibility Library",
-    "for using the new PHP 7 random_* API in PHP 5 projects",
-    "",
-    "The MIT License (MIT)",
-    "",
-    "Copyright (c) 2015 Paragon Initiative Enterprises",
+    "Copyright (c) 2015 - 2017 Paragon Initiative Enterprises",
     "",
     "Permission is hereby granted, free of charge, to any person obtaining a copy",
     "of this software and associated documentation files (the \"Software\"), to deal",
@@ -5584,7 +5928,6 @@
     "@deprecated 3.0.0",
     "",
     "This file is here for backward compatibility with old themes and will be removed in a future version",
-    "",
     ""
   ],
   "wp-includes/theme-compat/embed-404.php": [
@@ -5710,6 +6053,15 @@
     "@since 4.4.0",
     ""
   ],
+  "wp-includes/widgets/class-wp-widget-custom-html.php": [
+    "",
+    "Widget API: WP_Widget_Custom_HTML class",
+    "",
+    "@package WordPress",
+    "@subpackage Widgets",
+    "@since 4.8.1",
+    ""
+  ],
   "wp-includes/widgets/class-wp-widget-links.php": [
     "",
     "Widget API: WP_Widget_Links class",
@@ -5726,6 +6078,15 @@
     "@package WordPress",
     "@subpackage Widgets",
     "@since 4.8.0",
+    ""
+  ],
+  "wp-includes/widgets/class-wp-widget-media-gallery.php": [
+    "",
+    "Widget API: WP_Widget_Media_Gallery class",
+    "",
+    "@package WordPress",
+    "@subpackage Widgets",
+    "@since 4.9.0",
     ""
   ],
   "wp-includes/widgets/class-wp-widget-media-image.php": [
@@ -6267,9 +6628,8 @@
   ],
   "wp-includes/js/tinymce/wp-tinymce.php": [
     "",
-    "Disable error reporting",
-    "",
-    "Set this to error_reporting( -1 ) for debugging.",
+    "Not used in core since 5.1.",
+    "This is a back-compat for plugins that may be using this method of loading directly.",
     ""
   ],
   "wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php": [
@@ -6279,6 +6639,33 @@
     "@package WordPress",
     "@subpackage REST_API",
     "@since 4.7.0",
+    ""
+  ],
+  "wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php": [
+    "",
+    "REST API: WP_REST_Autosaves_Controller class.",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
+    ""
+  ],
+  "wp-includes/rest-api/endpoints/class-wp-rest-block-renderer-controller.php": [
+    "",
+    "Block Renderer REST API: WP_REST_Block_Renderer_Controller class",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
+    ""
+  ],
+  "wp-includes/rest-api/endpoints/class-wp-rest-blocks-controller.php": [
+    "",
+    "Reusable blocks REST API: WP_REST_Blocks_Controller class",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
     ""
   ],
   "wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php": [
@@ -6335,6 +6722,15 @@
     "@since 4.7.0",
     ""
   ],
+  "wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php": [
+    "",
+    "REST API: WP_REST_Search_Controller class",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
+    ""
+  ],
   "wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php": [
     "",
     "REST API: WP_REST_Settings_Controller class",
@@ -6360,6 +6756,15 @@
     "@package WordPress",
     "@subpackage REST_API",
     "@since 4.7.0",
+    ""
+  ],
+  "wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php": [
+    "",
+    "REST API: WP_REST_Themes_Controller class",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
     ""
   ],
   "wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php": [
@@ -6414,6 +6819,55 @@
     "@package WordPress",
     "@subpackage REST_API",
     "@since 4.7.0",
+    ""
+  ],
+  "wp-includes/rest-api/search/class-wp-rest-post-search-handler.php": [
+    "",
+    "REST API: WP_REST_Post_Search_Handler class",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
+    ""
+  ],
+  "wp-includes/rest-api/search/class-wp-rest-search-handler.php": [
+    "",
+    "REST API: WP_REST_Search_Handler class",
+    "",
+    "@package WordPress",
+    "@subpackage REST_API",
+    "@since 5.0.0",
+    ""
+  ],
+  "wp-includes/sodium_compat/lib/php72compat.php": [
+    "",
+    "This file will monkey patch the pure-PHP implementation in place of the",
+    "PECL functions and constants, but only if they do not already exist.",
+    "",
+    "Thus, the functions or constants just proxy to the appropriate",
+    "ParagonIE_Sodium_Compat method or class constant, respectively.",
+    ""
+  ],
+  "wp-includes/sodium_compat/src/Compat.php": [
+    "",
+    "Libsodium compatibility layer",
+    "",
+    "This is the only class you should be interfacing with, as a user of",
+    "sodium_compat.",
+    "",
+    "If the PHP extension for libsodium is installed, it will always use that",
+    "instead of our implementations. You get better performance and stronger",
+    "guarantees against side-channels that way.",
+    "",
+    "However, if your users don't have the PHP extension installed, we offer a",
+    "compatible interface here. It will give you the correct results as if the",
+    "PHP extension was installed. It won't be as fast, of course.",
+    "",
+    "CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION *",
+    "*",
+    "Until audited, this is probably not safe to use! DANGER WILL ROBINSON     *",
+    "*",
+    "CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION *",
     ""
   ],
   "wp-includes/Requests/Exception/HTTP/304.php": [
@@ -6880,6 +7334,24 @@
     "",
     "@author  Ciprian Popovici",
     "@package Text_Diff",
+    ""
+  ],
+  "wp-includes/sodium_compat/src/Core32/Int32.php": [
+    "",
+    "Class ParagonIE_Sodium_Core32_Int32",
+    "",
+    "Encapsulates a 32-bit integer.",
+    "",
+    "These are immutable. It always returns a new instance.",
+    ""
+  ],
+  "wp-includes/sodium_compat/src/Core32/Int64.php": [
+    "",
+    "Class ParagonIE_Sodium_Core32_Int64",
+    "",
+    "Encapsulates a 64-bit integer.",
+    "",
+    "These are immutable. It always returns a new instance.",
     ""
   ]
 }
